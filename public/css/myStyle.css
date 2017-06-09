@@ -1,0 +1,15 @@
+*{
+    margin: 0px;
+}
+
+#alumnos{
+    width: 50px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 28px;
+    justify-content: center;
+}
+footer{
+   margin-top: 20px; 
+   bottom: 0px;
+}
