@@ -37,22 +37,23 @@ and open the template in the editor.
             <div>
                 <h3>Consulta de Indicadores por Categoria</h3>
             </div>
-            <div class="col-lg-4" >
-                <a href="#"><img src="public/img/icon-estudiantes.png" alt=""/>
-                <p id="alumnos">Alumnos</p></a>
-            </div>
-            <div class="col-lg-4" >
-                <a href="Docentes.php" id="docentes"><img src="public/img/icon-docente.png" alt=""/></a>
-                <p>Docentes</p>
-            </div>
-            <div class="col-lg-4" >
-                <a href="#" id="carreras">
-                <img src="public/img/icono-carrera.png" alt=""/>
-                Carreras</a>
+            <div class="container">
+                <div class="col-lg-4">
+                    <a href="#"><img src="public/img/icon-estudiantes.png" alt=""/></a>
+                    <p>Alumnos</p>
+                </div>
+                <div class="col-lg-4">
+                    <a href="Docentes.php" id="docentes"><img src="public/img/icon-docente.png" alt=""/></a>
+                    <p>Docentes</p>
+                </div>
+                <div class="col-lg-4">
+                    <a href="#"><img src="public/img/icono-carrera.png" alt=""/></a>
+                    <p>Carreras</p>
+                </div>
             </div>
             <footer><h5>Powered by ROS 2017</h5></footer>
         </div>
-        
+
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
