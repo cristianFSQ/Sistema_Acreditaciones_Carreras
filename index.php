@@ -42,9 +42,8 @@ and open the template in the editor.
                 <p id="alumnos">Alumnos</p></a>
             </div>
             <div class="col-lg-4" >
-                <a href="#" id="docentes">
-                <img src="public/img/icon-docente.png" alt=""/>
-                Docentes</a>
+                <a href="Docentes.php" id="docentes"><img src="public/img/icon-docente.png" alt=""/></a>
+                <p>Docentes</p>
             </div>
             <div class="col-lg-4" >
                 <a href="#" id="carreras">
@@ -53,7 +52,7 @@ and open the template in the editor.
             </div>
             <footer><h5>Powered by ROS 2017</h5></footer>
         </div>
-        <a href="Docentes.php">link del docente</a>
+        
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
