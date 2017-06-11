@@ -2,4 +2,10 @@
     background-color: skyblue;
     margin-top: -20px;
 }
-
+ul a{
+    max-width: 300px;
+    max-height: 500px;
+}
+#panel{
+    max-height: 800px;
+}

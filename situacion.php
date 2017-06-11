@@ -26,12 +26,26 @@
         </nav>
         <div class="container"> <!-- cuerpo de indicadores generales-->
             <div class="col-lg-12"><h1>Sistema Indicadores de Acreditaci&oacute;n</h1></div>
-            <div class="col-lg-2">SIA</div>
-            <div class="col-lg-2">Bienvenido:</div>
-            <div class="col-lg-2">Situaci&oacute;n actual de los indicadores </div>
-            <div class="col-lg-2">Docentes con capacitaciones</div>
-            <div class="col-lg-2">Docentes con Postgrados</div>
-            <div class="col-lg-2">Resultados de evaluaci&oacute;n docente</div>
+            <div>SIA</div>
+            <div>Bienvenido:</div>
+            <div  id="panel" class="panel panel-primary col-lg-4">
+                <div class="panel-heading">Situaci&oacute;n actual de los indicadores </div>
+                <div class="list-group panel-body">
+                    <a href="#" class="list-group-item ">Docentes con capacitaciones</a>
+                    <a href="#" class="list-group-item ">Docentes con Postgrados</a>
+                    <a href="#" class="list-group-item ">Resultados de evaluaci&oacute;n docente</a>
+                </div>
+            </div>
+            <div class="col-lg-4" style="background-color: red">
+                <br>
+                <br>
+                <br>
+            </div>
+            <div class="col-lg-4" style="background-color: blue">
+                <br>
+                <br>
+                <br>
+            </div>
         </div>
         <footer><h5>Powered by ROS 2017</h5></footer>
         <?php
