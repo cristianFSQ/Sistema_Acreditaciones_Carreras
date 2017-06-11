@@ -53,6 +53,7 @@ and open the template in the editor.
             </div>
            
         </div>
+        <h2>hola mundo</h2>
         <footer><h5>Powered by ROS 2017</h5></footer>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
