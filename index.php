@@ -43,7 +43,7 @@ and open the template in the editor.
                     <p>Alumnos</p>
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    <a href="Docentes.php" id="docentes"><img src="public/img/icon-docente.png" alt=""/></a>
+                    <a href="situacion.php" id="docentes"><img src="public/img/icon-docente.png" alt=""/></a>
                     <p>Docentes</p>
                 </div>
                 <div class="col-lg-4 col-md-4">
@@ -53,7 +53,7 @@ and open the template in the editor.
             </div>
            
         </div>
-        <h2>hola mundo</h2>
+        
         <footer><h5>Powered by ROS 2017</h5></footer>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
