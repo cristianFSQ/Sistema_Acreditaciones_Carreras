@@ -33,11 +33,11 @@ and open the template in the editor.
                 </div>
             </div>
         </nav>
-        <div class="container">
-            <div class="col-lg-12">
+        <div class="container" style="height: 750%  ;">
+            <div class="col-lg-12" style="margin-bottom: 95px;">
                 <h3>Consulta de Indicadores por Categoria</h3>
             </div>
-            <div class="container">
+            <div class="container col-lg-12" style="margin-bottom: 100px;">
                 <div class="col-lg-4 col-md-4">
                     <a href="#"><img src="public/img/icon-estudiantes.png" alt=""/></a>
                     <p>Alumnos</p>
@@ -51,10 +51,10 @@ and open the template in the editor.
                     <p>Carreras</p>
                 </div>
             </div>
-           
+            <footer class="col-lg-12" style="background-color: grey; height: 50px;"><h5>Powered by ROS 2017</h5></footer>  
         </div>
         
-        <footer><h5>Powered by ROS 2017</h5></footer>
+        
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
