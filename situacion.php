@@ -6,7 +6,7 @@
         <link href="public/css/situacion.css" rel="stylesheet" type="text/css"/>
         <title>Situacion General Actual</title>
     </head>
-    <body>
+    
         <nav class="navbar navbar-default"> 
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -32,7 +32,7 @@
                 <div class="panel-heading">Situaci&oacute;n actual de los indicadores </div>
                 <div class="list-group panel-body">
                     <a href="#" class="list-group-item ">Docentes con capacitaciones</a>
-                    <a href="#" class="list-group-item ">Docentes con Postgrados</a>
+                    <a href="indicadorDocente.php" class="list-group-item ">Docentes con Postgrados</a>
                     <a href="#" class="list-group-item ">Resultados de evaluaci&oacute;n docente</a>
                 </div>
             </div>
@@ -48,10 +48,8 @@
             </div>
         </div>
         <footer><h5>Powered by ROS 2017</h5></footer>
-        <?php
-        // put your code here
-        ?>
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    </body>
+    
 </html>
