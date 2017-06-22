@@ -51,11 +51,11 @@ if (isset($_POST["usuario"])) {
                     <form action="index.php" method="post">
                         <h2>Login</h2>
                         <div class="form-group">
-                            <label for="usuario">Usuario :</label>
+                           
                             <input id="usuario" class="form-control" type="text" placeholder="&#128272; Usuario" name="usuario"> 
                         </div>
                         <div class="form-group">
-                            <label for="password">Contraseña :</label>
+                           
                             <input id="password" class="form-control" type="password" placeholder="&#128272; Contraseña" name="clave"> 
                         </div>
                         <div class="form-group">
