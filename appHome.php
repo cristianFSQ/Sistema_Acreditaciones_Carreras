@@ -34,21 +34,21 @@ and open the template in the editor.
                     </div>
                 </div>
             </nav>
-            <div class="container col-lg-12"  style="height: 720px;">
+            <div class="container col-lg-12"  style="height: 720px; text-align: center;">
                 <div>
                     <h3>Consulta de Indicadores por Categoria</h3>
                 </div>
                 <div class="col-lg-4 col-md-4">
                     <a href="Docentes.php"><img src="public/img/icon-estudiantes.png" alt=""/></a>
-                    <p>Alumnos</p>
+                    <h2>Alumnos</h2>
                 </div>
                 <div class="col-lg-4 col-md-4">
                     <a href="situacion.php" id="docentes"><img src="public/img/icon-docente.png" alt=""/></a>
-                    <p>Docentes</p>
+                    <h2>Docentes</h2>
                 </div>
                 <div class="col-lg-4 col-md-4">
                     <a href="#"><img src="public/img/icono-carrera.png" alt=""/></a>
-                    <p>Carreras</p>
+                    <h2>Carreras</h2>
                 </div>
             </div>
             <footer><h5>Powered by ROS 2017</h5></footer> 
