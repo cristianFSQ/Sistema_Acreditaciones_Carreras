@@ -1,5 +1,6 @@
 <?php
-$conexion = new mysqli("localhost", "root", "", "acreditacion2.0");
+session_start();
+include 'ClaseConexion.php';
 
 //CONSULTAS A LA BD
 
@@ -32,7 +33,7 @@ while ($filaNo = $resNo->fetch_array(MYSQLI_BOTH)) {
 
         <title>Situacion General Actual</title>
     </head>
-    <body>
+    <body style="background-color: #c4e3f3;">
         <nav class="navbar navbar-default"> 
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -47,10 +48,13 @@ while ($filaNo = $resNo->fetch_array(MYSQLI_BOTH)) {
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Inicio</a></li>
                     </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon"></span><?php echo $_SESSION["ses_nombre"];?></a></li>
+                    </ul>
                 </div>
             </div>
         </nav>
-        <div class="container"> <!-- cuerpo de indicadores generales-->
+        <div class="container" style="height: 615px; background-color: #66afe9; margin-top: -20px;"> <!-- cuerpo de indicadores generales-->
             <div>
                 <h1>Indicadores Docente</h1>
             </div>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'ClaseConexion.php';
 
 if (isset($_POST["usuario"])) {
@@ -9,6 +10,7 @@ if (isset($_POST["usuario"])) {
     $resultado = mysqli_query($conexion, $consulta);
     $filas = mysqli_num_rows($resultado);
     if ($filas > 0) {
+        $_SESSION["ses_nombre"] = $usuario;
         header("location:appHome.php");
     } else {
         echo '<script>
@@ -34,7 +36,7 @@ if (isset($_POST["usuario"])) {
         <nav class="navbar navbar-default"> 
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Sistema Acreditacion</a>
+                    <a class="navbar-brand" href="#">Sistema de Acreditaci&oacute;n de Carreras</a>
                 </div>
             </div>
         </nav>

@@ -1,9 +1,5 @@
+<?php  session_start();?>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>Sistema de Acreditaci&oacute;n de Carreras</title>
@@ -20,15 +16,14 @@ and open the template in the editor.
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>                        
                     </button>
-                    <a class="navbar-brand" href="#">Sistema Acreditacion de Carreras</a>
+                    <a class="navbar-brand" href="#">Sistema de Acreditaci&oacute;n de Carreras</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Inicio</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <li><a href="#"><span class="glyphicon"></span><?php echo $_SESSION["ses_nombre"];?></a></li>
                     </ul>
                 </div>
             </div>
