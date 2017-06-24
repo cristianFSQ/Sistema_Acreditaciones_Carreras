@@ -50,7 +50,7 @@ while ($filaNo = $resNo->fetch_array(MYSQLI_BOTH)) {
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION["ses_nombre"]; ?><span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="cerrarsesion.php">Cerrar Sesion
+                                    <a href="../cerrarsesion.php">Cerrar Sesion
                                         <?php
                                         if (!empty($_SESSION["nombre_usuario"])) {
                                             $_SESSION["ses_nombre"];
