@@ -28,7 +28,7 @@ while ($filaNo = $resNo->fetch_array(MYSQLI_BOTH)) {
     <head>
         <meta charset="UTF-8">
         <link href="public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
-        <link href="public/css/situacion.css" rel="stylesheet" type="text/css"/>
+        <link href="../public/css/situacion.css" rel="stylesheet" type="text/css"/>
         <title>Situacion General Actual</title>
     </head>
     <body style="background-color: #c4e3f3;">
