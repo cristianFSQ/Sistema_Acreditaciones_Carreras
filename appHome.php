@@ -1,4 +1,4 @@
-<?php  session_start();?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,7 +23,16 @@
                         <li class="active"><a href="#">Inicio</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon"></span><?php echo $_SESSION["ses_nombre"];?></a></li>
+                        <li><a href="#"><span class="glyphicon"></span><?php echo $_SESSION["ses_nombre"]; ?></a></li>
+                        <li>
+                            <a href="cerrarsesion.php">Cerrar Sesion
+                                <?php
+                                if (!empty($_SESSION["nombre_usuario"])) {
+                                    $_SESSION["ses_nombre"];
+                                }
+                                ?>  
+                            </a> 
+                        </li>
                     </ul>
                 </div>
             </div>
