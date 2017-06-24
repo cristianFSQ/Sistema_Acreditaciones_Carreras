@@ -34,15 +34,15 @@
                     <h3>Consulta de Indicadores por Categoria</h3>
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    <a href="Docentes.php"><img src="public/img/icon-estudiantes.png" alt=""/></a>
+                    <a href="situaciones/situacionAlumno.php"><img src="public/img/icon-estudiantes.png" alt=""/></a>
                     <h2>Alumnos</h2>
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    <a href="situacion.php" id="docentes"><img src="public/img/icon-docente.png" alt=""/></a>
+                    <a href="situaciones/situacionDocente.php" id="docentes"><img src="public/img/icon-docente.png" alt=""/></a>
                     <h2>Docentes</h2>
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    <a href="#"><img src="public/img/icono-carrera.png" alt=""/></a>
+                    <a href="situaciones/situacionCarrera.php"><img src="public/img/icono-carrera.png" alt=""/></a>
                     <h2>Carreras</h2>
                 </div>
             </div>
