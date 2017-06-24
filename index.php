@@ -27,7 +27,7 @@ if (isset($_POST["usuario"])) {
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <title>Sistema de Acreditaci&oacute;n</title>
+        <title>Sistema de Acreditaci&oacute;n de Carreras</title>
     </head>
     <body style="background-color: #c4e3f3;">
         <!-- barra de navegacion -->

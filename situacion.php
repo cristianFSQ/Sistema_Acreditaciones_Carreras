@@ -1,12 +1,38 @@
+<?php
+$conexion = new mysqli("localhost", "root", "", "acreditacion2.0");
+
+//CONSULTAS A LA BD
+
+$resTotal = $conexion->query("SELECT * FROM docente");
+$cnt = $resTotal->num_rows;
+
+$resSi = $conexion->query("SELECT * FROM docente WHERE DCT_POSTGRADO='si'");
+$cntSi = $resSi->num_rows;
+$totalSi = $cntSi * 100 / $cnt;
+
+$resNo = $conexion->query("SELECT * FROM docente WHERE DCT_POSTGRADO='no'");
+$cntNo = $resNo->num_rows;
+$totalNo = $cntNo * 100 / $cnt;
+
+while ($filaSi = $resSi->fetch_array(MYSQLI_BOTH)) {
+    $Si = "{ name:'" . $filaSi['DCT_POSTGRADO'] . "',y:" . $totalSi . "},";
+}
+
+while ($filaNo = $resNo->fetch_array(MYSQLI_BOTH)) {
+    $No = "{ name:'" . $filaNo['DCT_POSTGRADO'] . "',y:" . $totalNo . "},";
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
         <link href="public/css/situacion.css" rel="stylesheet" type="text/css"/>
+
+
         <title>Situacion General Actual</title>
     </head>
-    
+    <body>
         <nav class="navbar navbar-default"> 
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -15,7 +41,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>                        
                     </button>
-                    <a class="navbar-brand" href="appHome.php">Sistema Acreditacion de Carreras</a>
+                    <a class="navbar-brand" href="appHome.php">Sistema de Acreditaci&oacute;n de Carreras</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
@@ -25,32 +51,109 @@
             </div>
         </nav>
         <div class="container"> <!-- cuerpo de indicadores generales-->
-            <div class="col-lg-12"><h1>Sistema Indicadores de Acreditaci&oacute;n</h1></div>
-            <div>SIA</div>
-            <div>Bienvenido:</div>
-            <div  id="panel" class="panel panel-primary col-lg-4">
-                <div class="panel-heading">Situaci&oacute;n actual de los indicadores </div>
-                <div class="list-group panel-body">
-                    <a href="#" class="list-group-item ">Docentes con capacitaciones</a>
-                    <a href="indicadorDocente.php" class="list-group-item ">Docentes con Postgrados</a>
-                    <a href="#" class="list-group-item ">Resultados de evaluaci&oacute;n docente</a>
+            <div>
+                <h1>Indicadores Docente</h1>
+            </div>
+            <!-- panel collapse postgrado -->
+
+            <div class="panel-group col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#contaner1">Docente con Postgrado</a>
+                        </h4>
+                    </div>
+                    <div class="panel-body" id="contaner1">
+                        <div class="panel-body col-lg-4" id="contenedor1"></div>
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-4"></div>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-4" style="background-color: red">
-                <br>
-                <br>
-                <br>
+            <!-- panel collapse capacitacion -->
+            
+            <div class="panel-group col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#contaner2">Docente con Capacitaciones</a>
+                        </h4>
+                    </div>
+                    <div class="panel-body" id="contaner2">
+                        <div class="col-lg-4" id="contenedor2"></div>
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-4"></div>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4" style="background-color: blue">
-                <br>
-                <br>
-                <br>
+            <!-- panel collapse evaluacion -->
+            
+            <div class="panel-group col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#contaner3">Resultados de evaluaci&oacute;n docente</a>
+                        </h4>
+                    </div>
+                    <div class="panel-body" id="contaner3">
+                        <div class="col-lg-4" id="contenedor3"></div>
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-4"></div>
+                    </div>
+                </div>
             </div>
-            <footer><h5>Powered by ROS 2017</h5></footer> 
         </div>
-      
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
+
+
+        <footer><h5>Powered by ROS 2017</h5></footer> 
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script> 
+    <script type="text/javascript">
+        $(function () {
+            $('#contenedor1').highcharts({
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: null
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'blue'
+                            }
+                        }
+                    }
+                },
+                series: [{
+                        type: 'pie',
+                        name: 'Porcentaje Postgrado',
+                        data: [
+<?php
+echo $Si;
+echo $No;
+?>
+
+                        ]
+                    }]
+            });
+        });
+
+    </script>
+
+</body>
 </html>
