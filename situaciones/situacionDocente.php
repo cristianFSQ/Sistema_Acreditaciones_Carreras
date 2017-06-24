@@ -27,7 +27,7 @@ while ($filaNo = $resNo->fetch_array(MYSQLI_BOTH)) {
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <link href="public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
+        <link href="../public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
         <link href="../public/css/situacion.css" rel="stylesheet" type="text/css"/>
         <title>Situacion General Actual</title>
     </head>
@@ -47,15 +47,18 @@ while ($filaNo = $resNo->fetch_array(MYSQLI_BOTH)) {
                         <li class="active"><a href="#">Inicio</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon"></span><?php echo $_SESSION["ses_nombre"]; ?></a></li>
-                        <li>
-                            <a href="../cerrarsesion.php">Cerrar Sesion
-                                <?php
-                                if (!empty($_SESSION["nombre_usuario"])) {
-                                    $_SESSION["ses_nombre"];
-                                }
-                                ?>  
-                            </a> 
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION["ses_nombre"]; ?><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="cerrarsesion.php">Cerrar Sesion
+                                        <?php
+                                        if (!empty($_SESSION["nombre_usuario"])) {
+                                            $_SESSION["ses_nombre"];
+                                        }
+                                        ?>  
+                                    </a> 
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
