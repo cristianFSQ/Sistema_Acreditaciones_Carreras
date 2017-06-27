@@ -105,9 +105,9 @@ while ($filaCongeladoe = $resCongeladoe->fetch_array(MYSQLI_BOTH)) {
                         </h4>
                     </div>
                     <div class="panel-body panel-collapse collapse in" id="contaner1">
-                        <div class="panel-body col-lg-4" id="contenedor1"></div>
-                        <div class="col-lg-4"></div>
-                        <div class="col-lg-4"></div>
+                        <div class="panel-body col-lg-6" id="contenedor1"></div>
+                        <div class="col-lg-6"></div>
+                       
                     </div>
                 </div>
             
@@ -126,9 +126,9 @@ while ($filaCongeladoe = $resCongeladoe->fetch_array(MYSQLI_BOTH)) {
                         </h4>
                     </div>
                     <div class="panel-body panel-collapse collapse" id="contaner3">
-                        <div class="panel-body col-lg-4" id="contenedor3"></div>
-                        <div class="col-lg-4"></div>
-                        <div class="col-lg-4"></div>
+                        <div class="panel-body col-lg-6" id="contenedor3"></div>
+                        <div class="col-lg-6"></div>
+                        
                     </div>
                 </div>
             
