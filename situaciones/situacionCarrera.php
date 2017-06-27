@@ -52,7 +52,7 @@ while ($filaNo3 = $resNo3->fetch_array(MYSQLI_BOTH)) {
         <meta charset="UTF-8">
         <link href="../public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
         <link href="../public/css/situacion.css" rel="stylesheet" type="text/css"/>
-        <title>Situacion General Actual</title>
+        <title>Indicadores Carreras</title>
     </head>
     <body style="background-color: #c4e3f3;">
         <nav class="navbar navbar-default"> 
@@ -67,7 +67,9 @@ while ($filaNo3 = $resNo3->fetch_array(MYSQLI_BOTH)) {
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Inicio</a></li>
+                        <li ><a href="../situaciones/situacionAlumno.php">Alumnos</a></li>
+                        <li ><a href="../situaciones/situacionDocente.php">Docentes</a></li>
+                        <li ><a href="../situaciones/situacionCarrera.php">Carreras</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION["ses_nombre"]; ?><span class="caret"></span></a>
@@ -87,193 +89,155 @@ while ($filaNo3 = $resNo3->fetch_array(MYSQLI_BOTH)) {
                 </div>
             </div>
         </nav>
-        <div class="container" style="height: 615px; background-color: #66afe9; margin-top: -20px;"> <!-- cuerpo de indicadores generales-->
+        <div class="container" style="min-height: 575px; background-color: #66afe9; margin-top: -20px;"> <!-- cuerpo de indicadores generales-->
             <div>
                 <h1>Indicadores Carreras</h1>
             </div>
             <!-- panel collapse postgrado -->
-
-            <div class="panel-group col-lg-12">
+            <div id="accordion" class="panel-group col-lg-12">
+            
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" href="#contaner1">Cantidad de matriculas por carreras</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#contaner1">Cantidad de carreras acreditadas</a>
                         </h4>
                     </div>
-                    <div class="panel-body" id="contaner1">
-                        <div class="panel-body col-lg-4" id=""></div>
+                    <div class="panel-body panel-collapse collapse in" id="contaner1">
+                        <div class="panel-body col-lg-4" id="contenedor1"></div>
                         <div class="col-lg-4"></div>
                         <div class="col-lg-4"></div>
                     </div>
                 </div>
-            </div>
+            
             <!-- panel collapse capacitacion -->
 
-            <div class="panel-group col-lg-12">
+           
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" href="#contaner2">matriculas por año</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#contaner2">matriculas por año</a>
                         </h4>
                     </div>
-                    <div class="panel-body" id="contaner2">
+                    <div class="panel-body panel-collapse collapse" id="contaner2">
                         <div class="panel-body col-lg-4" id="contenedor2"></div>
                         <div class="col-lg-4"></div>
                         <div class="col-lg-4"></div>
                     </div>
                 </div>
-            </div>
+            
             <!-- panel collapse evaluacion -->
 
-            <div class="panel-group col-lg-12">
+            
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" href="#contaner3">Tipo de carreras</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#contaner3">Tipo de carreras</a>
                         </h4>
                     </div>
-                    <div class="panel-body" id="contaner3">
+                    <div class="panel-body panel-collapse collapse" id="contaner3">
                         <div class="panel-body col-lg-4" id="contenedor3"></div>
                         <div class="col-lg-4"></div>
                         <div class="col-lg-4"></div>
                     </div>
                 </div>
-            </div>
+            
         </div>
+      </div>
 
 
-        <footer><h5>Powered by ROS 2017</h5></footer> 
-    </div>
+        <footer><h5 style="text-align: center; font-weight: bold;">Powered by ROS 2017</h5></footer> 
+    
 
     <script src="../public/js/jquery.min.js" type="text/javascript"></script>
     <script src="../public/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="../public/code/highcharts.js" type="text/javascript"></script>
     <script src="../public/code/modules/exporting.js" type="text/javascript"></script>
+    
     <script type="text/javascript">
         $(function () {
-            $('#contenedor1').highcharts({
-                chart: {
-                    plotBackgroundColor: null,
-                    plotBorderWidth: null,
-                    plotShadow: false
-                },
-                title: {
-                    text: 'Indicador de Porcentaje de Carreras Acreditadas'
-                },
-                tooltip: {
-                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                },
-                plotOptions: {
-                    pie: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                            style: {
-                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                            }
-                        }
-                    }
-                },
-                series: [{
-                        type: 'pie',
-                        name: 'Porcentaje de Carreras Acreditadas',
-                        data: [
-<?php
-echo $Si;
-echo $No;
-?>
-
-                        ]
-                    }]
-            });
-        });
-        Highcharts.chart('contenedor2', {
-            chart: {
-                type: 'column',
-                options3d: {
+    $('#contenedor1').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: 'Indicador de Porcentaje de Carreras Acreditadas'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
                     enabled: true,
-                    alpha: 10,
-                    beta: 25,
-                    depth: 70
-                }
-            },
-            title: {
-                text: '3D chart with null values'
-            },
-            subtitle: {
-                text: 'Notice the difference between a 0 value and a null point'
-            },
-            plotOptions: {
-                column: {
-                    depth: 25
-                }
-            },
-            xAxis: {
-                categories: Highcharts.getOptions().lang.shortMonths
-            },
-            yAxis: {
-                title: {
-                    text: null
-                }
-            },
-            series: [{
-                    name: 'Sales',
-                    data: [
-<?php
-$sql = mysql_query("SELECT * FROM carreras");
-while ($res = mysql_fetch_array($sql)) {
-    ?>
-
-                            [<?php echo $res['CRR_MATRICULAS_ACTIVAS'] ?>],
-    <?php
-}
-?>
-                    ]
-                }]
-        });
-        $(function () {
-            $('#contenedor3').highcharts({
-                chart: {
-                    plotBackgroundColor: null,
-                    plotBorderWidth: null,
-                    plotShadow: false
-                },
-                title: {
-                    text: 'Indicador de Porcentaje de Tipos de Carreras'
-                },
-                tooltip: {
-                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                },
-                plotOptions: {
-                    pie: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                            style: {
-                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                            }
-                        }
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
                     }
-                },
-                series: [{
-                        type: 'pie',
-                        name: 'Porcentaje de Tipos de Carreras',
-                        data: [
-<?php
-echo $Si3;
-echo $No3;
-?>
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Porcentaje de Carreras Acreditadas',
+            data: [
+                
+                <?php
+                echo $Si;
+                echo $No;
+                ?>
 
-                        ]
-                    }]
-            });
-        });
+            ]
+        }]
+    });
+});
+</script>
 
-    </script>
+<script type="text/javascript">
+$(function () {
+    $('#contenedor3').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: 'Indicador de Porcentaje de Tipos de Carreras'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Porcentaje de Tipos de Carreras',
+            data: [
+                
+                <?php
+                echo $Si3;
+                echo $No3;
+                ?>
+
+            ]
+        }]
+    });
+});
+</script>
 
 </body>
 </html>

@@ -44,10 +44,10 @@ if (isset($_POST["usuario"])) {
         <!-- Contenedores -->
 
         <div class="container" style="height: 615px; background-color: #66afe9; margin-top: -20px;">
-            <div class="col-lg-12" style=" border: 1px black solid;"    >
-                <h2 style="text-align: center;">Sistema de Acreditaci&oacute;n &Aacute;rea Inform&aacute;tica</h2>
+            <div class="col-lg-12">
+                <h2 style="text-align: center;">Sistema de Acreditaci&oacute;n de Carreras</h2>
             </div>
-            <div class="col-lg-12" style=" border: 1px black solid; margin-top: 2%;">
+            <div class="col-lg-12" style=" margin-top: 2%;">
                 <div class="col-lg-4"></div>
                 <div class="formulario_login col-lg-4">
                     <form action="index.php" method="post">

@@ -48,7 +48,7 @@ while ($filaNoE = $resNoE->fetch_array(MYSQLI_BOTH)) {
         <meta charset="UTF-8">
         <link href="../public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
         <link href="../public/css/situacion.css" rel="stylesheet" type="text/css"/>
-        <title>Situacion General Actual</title>
+        <title>Indicadores Docentes</title>
     </head>
     <body style="background-color: #c4e3f3;">
         <nav class="navbar navbar-default"> 
@@ -63,7 +63,9 @@ while ($filaNoE = $resNoE->fetch_array(MYSQLI_BOTH)) {
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Inicio</a></li>
+                        <li ><a href="../situaciones/situacionAlumno.php">Alumnos</a></li>
+                        <li ><a href="../situaciones/situacionDocente.php">Docentes</a></li>
+                        <li ><a href="../situaciones/situacionCarrera.php">Carreras</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION["ses_nombre"]; ?><span class="caret"></span></a>
@@ -83,132 +85,133 @@ while ($filaNoE = $resNoE->fetch_array(MYSQLI_BOTH)) {
                 </div>
             </div>
         </nav>
-        <div class="container" style="min-height: 635px; background-color: #66afe9; margin-top: -20px;"> <!-- cuerpo de indicadores generales-->
+        <div class="container" style="min-height: 575px; background-color: #66afe9; margin-top: -20px;"> <!-- cuerpo de indicadores generales-->
             <div>
-                <h1>Indicadores Docente</h1>
+                <h1>Indicadores Docentes</h1>
             </div>
             <!-- panel collapse postgrado -->
+            <div id="accordion" class="panel-group col-lg-12">
 
-            <div class="panel-group col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" href="#contaner1">Docente con Postgrado</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#contaner1">Docente con Postgrado</a>
                         </h4>
                     </div>
-                    <div class="panel-body" id="contaner1">
+                    <div class="panel-body panel-collapse collapse in" id="contaner1">
                         <div class="panel-body col-lg-4" id="contenedor1"></div>
                         <div class="col-lg-4"></div>
                         <div class="col-lg-4"></div>
                     </div>
                 </div>
-            </div>
-            <!-- panel collapse evaluacion -->
 
-            <div class="panel-group col-lg-12">
+                <!-- panel collapse capacitacion -->
+
+
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" href="#contaner2">Resultados de evaluaci&oacute;n docente</a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#contaner2">Aprobaci&oacute;n encuesta Docente</a>
                         </h4>
                     </div>
-                    <div class="panel-body" id="contaner2">
+                    <div class="panel-body panel-collapse collapse" id="contaner2">
                         <div class="panel-body col-lg-4" id="contenedor2"></div>
                         <div class="col-lg-4"></div>
                         <div class="col-lg-4"></div>
                     </div>
                 </div>
+
             </div>
         </div>
 
 
-        <footer><h5>Powered by ROS 2017</h5></footer> 
-    </div>
+        <footer><h5 style="text-align: center; font-weight: bold;">Powered by ROS 2017</h5></footer> 
 
-    <script src="../public/js/jquery.min.js" type="text/javascript"></script>
-    <script src="../public/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../public/code/highcharts.js" type="text/javascript"></script>
-    <script src="../public/code/modules/exporting.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(function () {
-            $('#contenedor1').highcharts({
-                chart: {
-                    plotBackgroundColor: null,
-                    plotBorderWidth: null,
-                    plotShadow: false
-                },
-                title: {
-                    text: null
-                },
-                tooltip: {
-                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                },
-                plotOptions: {
-                    pie: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                            style: {
-                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'blue'
+
+        <script src="../public/js/jquery.min.js" type="text/javascript"></script>
+        <script src="../public/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../public/code/highcharts.js" type="text/javascript"></script>
+        <script src="../public/code/modules/exporting.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function () {
+                $('#contenedor1').highcharts({
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false
+                    },
+                    title: {
+                        text: null
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                style: {
+                                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'blue'
+                                }
                             }
                         }
-                    }
-                },
-                series: [{
-                        type: 'pie',
-                        name: 'Porcentaje Postgrado',
-                        data: [
+                    },
+                    series: [{
+                            type: 'pie',
+                            name: 'Porcentaje Postgrado',
+                            data: [
 <?php
 echo $Si;
 echo $No;
 ?>
 
-                        ]
-                    }]
+                            ]
+                        }]
+                });
             });
-        });
-        $(function () {
-            $('#contenedor2').highcharts({
-                chart: {
-                    plotBackgroundColor: null,
-                    plotBorderWidth: null,
-                    plotShadow: false
-                },
-                title: {
-                    text: 'Indicador de Porcentaje de Aprobacion de Encuesta Docente'
-                },
-                tooltip: {
-                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                },
-                plotOptions: {
-                    pie: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                            style: {
-                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+            $(function () {
+                $('#contenedor2').highcharts({
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false
+                    },
+                    title: {
+                        text: 'Indicador de Porcentaje de Aprobacion de Encuesta Docente'
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                style: {
+                                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                }
                             }
                         }
-                    }
-                },
-                series: [{
-                        type: 'pie',
-                        name: 'Porcentaje Resultado Encuesta Docente',
-                        data: [
+                    },
+                    series: [{
+                            type: 'pie',
+                            name: 'Porcentaje Resultado Encuesta Docente',
+                            data: [
 <?php
 echo $SiE;
 echo $NoE;
 ?>
 
-                        ]
-                    }]
+                            ]
+                        }]
+                });
             });
-        });
-    </script>
+        </script>
 
-</body>
+    </body>
 </html>

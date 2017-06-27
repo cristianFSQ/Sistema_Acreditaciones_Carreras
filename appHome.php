@@ -19,9 +19,6 @@
                     <a class="navbar-brand" href="#">Sistema de Acreditaci&oacute;n de Carreras</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Inicio</a></li>
-                    </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION["ses_nombre"]; ?><span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -41,7 +38,7 @@
                 </div>
             </div>
         </nav>
-        <div class="container" style="height: 615px; background-color: #66afe9; margin-top: -20px;">
+        <div class="container" style="height: 575px; background-color: #66afe9; margin-top: -20px;">
             <div class="container col-lg-12"  style="text-align: center;">
                 <div>
                     <h3>Consulta de Indicadores por Categoria</h3>
@@ -59,9 +56,9 @@
                     <h2>Carreras</h2>
                 </div>
             </div>
-            <footer><h5>Powered by ROS 2017</h5></footer> 
+            
         </div>
-
+<footer><h5 style="text-align: center; font-weight: bold;">Powered by ROS 2017</h5></footer> 
 
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
