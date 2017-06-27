@@ -2,7 +2,7 @@
 session_start();
 include '../ClaseConexion.php';
 
-//CONSULTAS A LA BD
+//CONSULTAS A LA BD DOCENTE CON POSTGRADO
 
 $resTotal = $conexion->query("SELECT * FROM docente");
 $cnt = $resTotal->num_rows;
@@ -21,6 +21,25 @@ while ($filaSi = $resSi->fetch_array(MYSQLI_BOTH)) {
 
 while ($filaNo = $resNo->fetch_array(MYSQLI_BOTH)) {
     $No = "{ name:'" . $filaNo['DCT_POSTGRADO'] . "',y:" . $totalNo . "},";
+}
+
+$resTotalE = $conexion->query("SELECT * FROM docente");
+$cntE = $resTotalE->num_rows;
+
+$resSiE = $conexion->query("SELECT * FROM docente WHERE DCT_PORCENTAJE_ED>='75'");
+$cntSiE = $resSiE->num_rows;
+$totalSiE = $cntSiE * 100 / $cntE;
+
+$resNoE = $conexion->query("SELECT * FROM docente WHERE DCT_PORCENTAJE_ED<'75'");
+$cntNoE = $resNoE->num_rows;
+$totalNoE = $cntNoE * 100 / $cntE;
+
+while ($filaSiE = $resSiE->fetch_array(MYSQLI_BOTH)) {
+    $SiE = "{ name:'" . $filaSiE['DCT_PORCENTAJE_ED'] . "',y:" . $totalSiE . "},";
+}
+
+while ($filaNoE = $resNoE->fetch_array(MYSQLI_BOTH)) {
+    $NoE = "{ name:'" . $filaNoE['DCT_PORCENTAJE_ED'] . "',y:" . $totalNoE . "},";
 }
 ?>
 <!DOCTYPE html>
@@ -64,7 +83,7 @@ while ($filaNo = $resNo->fetch_array(MYSQLI_BOTH)) {
                 </div>
             </div>
         </nav>
-        <div class="container" style="height: 615px; background-color: #66afe9; margin-top: -20px;"> <!-- cuerpo de indicadores generales-->
+        <div class="container" style="min-height: 635px; background-color: #66afe9; margin-top: -20px;"> <!-- cuerpo de indicadores generales-->
             <div>
                 <h1>Indicadores Docente</h1>
             </div>
@@ -84,33 +103,17 @@ while ($filaNo = $resNo->fetch_array(MYSQLI_BOTH)) {
                     </div>
                 </div>
             </div>
-            <!-- panel collapse capacitacion -->
-
-            <div class="panel-group col-lg-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" href="#contaner2">Docente con Capacitaciones</a>
-                        </h4>
-                    </div>
-                    <div class="panel-body" id="contaner2">
-                        <div class="col-lg-4" id="contenedor2"></div>
-                        <div class="col-lg-4"></div>
-                        <div class="col-lg-4"></div>
-                    </div>
-                </div>
-            </div>
             <!-- panel collapse evaluacion -->
 
             <div class="panel-group col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" href="#contaner3">Resultados de evaluaci&oacute;n docente</a>
+                            <a data-toggle="collapse" href="#contaner2">Resultados de evaluaci&oacute;n docente</a>
                         </h4>
                     </div>
-                    <div class="panel-body" id="contaner3">
-                        <div class="col-lg-4" id="contenedor3"></div>
+                    <div class="panel-body" id="contaner2">
+                        <div class="panel-body col-lg-4" id="contenedor2"></div>
                         <div class="col-lg-4"></div>
                         <div class="col-lg-4"></div>
                     </div>
@@ -122,10 +125,10 @@ while ($filaNo = $resNo->fetch_array(MYSQLI_BOTH)) {
         <footer><h5>Powered by ROS 2017</h5></footer> 
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script> 
+    <script src="../public/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../public/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../public/code/highcharts.js" type="text/javascript"></script>
+    <script src="../public/code/modules/exporting.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
             $('#contenedor1').highcharts({
@@ -166,7 +169,45 @@ echo $No;
                     }]
             });
         });
+        $(function () {
+            $('#contenedor2').highcharts({
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: 'Indicador de Porcentaje de Aprobacion de Encuesta Docente'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                            }
+                        }
+                    }
+                },
+                series: [{
+                        type: 'pie',
+                        name: 'Porcentaje Resultado Encuesta Docente',
+                        data: [
+<?php
+echo $SiE;
+echo $NoE;
+?>
 
+                        ]
+                    }]
+            });
+        });
     </script>
 
 </body>
