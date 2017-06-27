@@ -112,18 +112,7 @@ while ($filaNo3 = $resNo3->fetch_array(MYSQLI_BOTH)) {
             <!-- panel collapse capacitacion -->
 
            
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#contaner2">matriculas por año</a>
-                        </h4>
-                    </div>
-                    <div class="panel-body panel-collapse collapse" id="contaner2">
-                        <div class="panel-body col-lg-4" id="contenedor2"></div>
-                        <div class="col-lg-4"></div>
-                        <div class="col-lg-4"></div>
-                    </div>
-                </div>
+                
             
             <!-- panel collapse evaluacion -->
 

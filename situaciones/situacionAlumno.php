@@ -114,18 +114,7 @@ while ($filaCongeladoe = $resCongeladoe->fetch_array(MYSQLI_BOTH)) {
             <!-- panel collapse capacitacion -->
 
            
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#contaner2">Alumnos matriculados por año</a>
-                        </h4>
-                    </div>
-                    <div class="panel-body panel-collapse collapse" id="contaner2">
-                        <div class="panel-body col-lg-4" id="contenedor2"></div>
-                        <div class="col-lg-4"></div>
-                        <div class="col-lg-4"></div>
-                    </div>
-                </div>
+               
             
             <!-- panel collapse evaluacion -->
 
@@ -194,44 +183,7 @@ echo $No;
             });
         });
 
-        Highcharts.chart('contenedor2', {
-            title: {
-                text: 'Solar Employment Growth by Sector, 2010-2016'
-            },
-            subtitle: {
-                text: 'Source: thesolarfoundation.com'
-            },
-            yAxis: {
-                title: {
-                    text: 'Number of Employees'
-                }
-            },
-            legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle'
-            },
-            plotOptions: {
-                series: {
-                    pointStart: 0
-                }
-            },
-            series: [{
-                    name: 'Installation',
-                    data: [
-<?php
-$sql = "SELECT * FROM alumnos";
-$result = mysqli_query($conexion, $sql);
-while ($registros = mysqli_fetch_array($result)) {
-    ?>
-    <?php echo $registros["ALM_ANIO_MATRICULA"] ?>,
-    <?php
-}
-?>
-                    ]
-                }]
-
-        });
+        
         $(function () {
             $('#contenedor3').highcharts({
                 chart: {
