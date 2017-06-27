@@ -103,9 +103,24 @@ while ($filaNo3 = $resNo3->fetch_array(MYSQLI_BOTH)) {
                         </h4>
                     </div>
                     <div class="panel-body panel-collapse collapse in" id="contaner1">
-                        <div class="panel-body col-lg-4" id="contenedor1"></div>
-                        <div class="col-lg-4"></div>
-                        <div class="col-lg-4"></div>
+                        <div class="panel-body col-lg-6" id="contenedor1"></div>
+                        <div class="col-lg-6">
+                            <table style="margin-left: 25%; margin-top: 25%;">
+                                <tr>
+                                    <td style="min-width: 200px;">d</td>
+                                    <td style="background-color: red; border-radius: 50px; padding: 5px; width: 50px;"></td>
+                                </tr>
+                                <tr>
+                                    <td style="min-width: 200px;">a</td>
+                                    <td style="background-color: orange; border-radius: 50px; padding: 5px;"></td>
+                                </tr>
+                                <tr>
+                                    <td style="min-width: 200px;">a</td>
+                                    <td style="background-color: green; border-radius: 50px; padding: 5px;"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        
                     </div>
                 </div>
             
@@ -125,7 +140,22 @@ while ($filaNo3 = $resNo3->fetch_array(MYSQLI_BOTH)) {
                     </div>
                     <div class="panel-body panel-collapse collapse" id="contaner3">
                         <div class="panel-body col-lg-6" id="contenedor3"></div>
-                        <div class="col-lg-6"></div>
+                        <div class="col-lg-6">
+                            <table style="margin-left: 25%; margin-top: 25%;">
+                                <tr>
+                                    <td style="min-width: 200px;">d</td>
+                                    <td style="background-color: red; border-radius: 50px; padding: 5px; width: 50px;"></td>
+                                </tr>
+                                <tr>
+                                    <td style="min-width: 200px;">a</td>
+                                    <td style="background-color: orange; border-radius: 50px; padding: 5px;"></td>
+                                </tr>
+                                <tr>
+                                    <td style="min-width: 200px;">a</td>
+                                    <td style="background-color: green; border-radius: 50px; padding: 5px;"></td>
+                                </tr>
+                            </table>
+                        </div>
                         
                     </div>
                 </div>
